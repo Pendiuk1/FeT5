@@ -13,30 +13,42 @@
 </head>
 
 <body>
-    <div id="app" class="container-fluid">
+    <div id="app" style="width:250px" class="container-fluid bg-secondary text-white d-flex flex-column flex-nowrap">
         <div id="title">
         </div>
-        <div id="subtitle" class="row">
-            <h3 id="break-label">Break</h3>
-            <h3 id="session-label">Session</h3>
+
+        <div id="subtitle" class="row justify-content-center d-flex flex-row flex-nowrap">
+            <h4 class="mx-3" id="break-label">Break</h4>
+
+            <h4 class="mx-3" id="session-label">Session</h4>
         </div>
-        <div id="config" class="row">
+
+        <div id="config" class="row justify-content-center d-flex flex-row flex-nowrap">
             <button id="break-decrement" @click="bDown" class="btn"><i
                     class="fa-solid fa-circle-arrow-down"></i></button>
-            <h4 id="break-length" class="t">{{setBreak}}</h4>
-            <button id="break-increment" @click="bUp" class="btn"><i
-                    class="fa-solid fa-circle-arrow-up"></i></button>
+
+            <h4 id="break-length" class="">{{setBreak}}</h4>
+
+            <button id="break-increment" @click="bUp" class="btn"><i class="fa-solid fa-circle-arrow-up"></i></button>
+
             <button id="session-decrement" @click="sDown" class="btn"><i
                     class="fa-solid fa-circle-arrow-down"></i></button>
-            <h4 id="session-length" class="t">{{setSession}}</h4>
+
+            <h4 id="session-length" class="">{{setSession}}</h4>
+
             <button id="session-increment" @click="sUp" class="btn"><i class="fa-solid fa-circle-arrow-up"></i></button>
         </div>
-        <h4 id="timer-label" class="t">{{fase}}</h4>
-        <h4 id="timer-left" class="t">{{minute}}:{{second}}</h4>
+        <div class="row d-flex mx-2 flex-column justify-content-center text-center border rounded">
 
-        <div id="control" class="row">
+            <h4 id="timer-label" class="">{{fase}}</h4>
+
+            <h4 id="timer-left" class="">{{minute>9?minute:'0' + minute}}:{{second>9?second:'0' + second}}</h4>
+        </div>
+
+        <div id="control" class="row d-flex flex-row justify-content-center">
             <button id="start_stop" @click="playPause" class="btn"><i v-if="!counting" class="fa-solid fa-play"></i><i
                     v-else class="fa-solid fa-pause"></i></button>
+
             <button id="reset" @click="reset" class="btn"><i class="fa-solid fa-rotate-left"></i></button>
         </div>
     </div>
