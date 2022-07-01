@@ -14,11 +14,13 @@ new Vue({
     },
     methods: {
         reset() {
-            this.minute = this.setSession;
+            this.minute = 25;
+            this.setSession = 25;
             this.second = 00;
             this.lastMin = this.minute;
             this.lastSec = this.second;
             this.counting = false;
+            this.setBreak = 5;
             this.fase = "Session";
             clearInterval(this.timerT);
         },
@@ -56,7 +58,7 @@ new Vue({
             }
         },
         sUp() {
-            if (!this.counting) {
+            if (!this.counting && this.setSession<60) {
                 this.setSession++;
                 this.lastMin = this.setSession;
                 this.minute = this.setSession;
@@ -65,7 +67,7 @@ new Vue({
             }
         },
         sDown() {
-            if (!this.counting) {
+            if (!this.counting && this.setSession>1) {
                 this.setSession--;
                 this.lastMin = this.setSession;
                 this.minute = this.setSession;
@@ -73,5 +75,13 @@ new Vue({
                 this.lastSec = 00;
             }
         },
+        bUp(){
+            if(this.setBreak<60)
+                this.setBreak++;
+        },
+        bDown(){
+            if(this.setBreak>0)
+                this.setBreak--;
+        }
     },
 });

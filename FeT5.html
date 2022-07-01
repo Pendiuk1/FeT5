@@ -21,19 +21,22 @@
             <h3 id="session-label">Session</h3>
         </div>
         <div id="config" class="row">
-            <button id="break-decrement" @click="setBreak-=1" class="btn"><i class="fa-solid fa-circle-arrow-down"></i></button>
+            <button id="break-decrement" @click="bDown" class="btn"><i
+                    class="fa-solid fa-circle-arrow-down"></i></button>
             <h4 id="break-length" class="t">{{setBreak}}</h4>
-            <button id="break-increment" @click="setBreak+=1" class="btn"><i class="fa-solid fa-circle-arrow-up"></i></button>
-            <button id="session-decrement" @click="sDown" class="btn"><i class="fa-solid fa-circle-arrow-down"></i></button>
+            <button id="break-increment" @click="bUp" class="btn"><i
+                    class="fa-solid fa-circle-arrow-up"></i></button>
+            <button id="session-decrement" @click="sDown" class="btn"><i
+                    class="fa-solid fa-circle-arrow-down"></i></button>
             <h4 id="session-length" class="t">{{setSession}}</h4>
             <button id="session-increment" @click="sUp" class="btn"><i class="fa-solid fa-circle-arrow-up"></i></button>
         </div>
-        <div id="timer" class="row">
-            <h2 id="timer-label" class="t"></h2>
-            <h4 id="timer-left" class="t">{{minute}}:{{second}}</h4>
-        </div>
+        <h4 id="timer-label" class="t">{{fase}}</h4>
+        <h4 id="timer-left" class="t">{{minute}}:{{second}}</h4>
+
         <div id="control" class="row">
-            <button id="start_stop" @click="playPause" class="btn"><i v-if="!counting" class="fa-solid fa-play"></i><i v-else class="fa-solid fa-pause"></i></button>
+            <button id="start_stop" @click="playPause" class="btn"><i v-if="!counting" class="fa-solid fa-play"></i><i
+                    v-else class="fa-solid fa-pause"></i></button>
             <button id="reset" @click="reset" class="btn"><i class="fa-solid fa-rotate-left"></i></button>
         </div>
     </div>
@@ -53,7 +56,7 @@
         crossorigin="anonymous"></script>
 
     <!-- TEST SCRIPT -->
-    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
 </html>
